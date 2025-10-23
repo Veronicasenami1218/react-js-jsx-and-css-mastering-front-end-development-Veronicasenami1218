@@ -21,6 +21,14 @@ export default function Navbar() {
               Home
             </NavLink>
             <NavLink
+              to="/posts"
+              className={({ isActive }) =>
+                `${linkBase} ${isActive ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800'}`
+              }
+            >
+              Posts
+            </NavLink>
+            <NavLink
               to="/about"
               className={({ isActive }) =>
                 `${linkBase} ${isActive ? 'bg-blue-600 text-white' : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800'}`

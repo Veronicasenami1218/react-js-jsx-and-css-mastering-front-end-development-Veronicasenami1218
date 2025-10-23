@@ -1,16 +1,6 @@
-:root {
-  /* Tailwind base styles will manage fonts and colors. */
-}
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* App shell sizing */
 html, body, #root {
   height: 100%;
-}
-
-/* A few CSS vars that can be handy with Tailwind */
-:root {
-  --container-max: 1200px;
 }
