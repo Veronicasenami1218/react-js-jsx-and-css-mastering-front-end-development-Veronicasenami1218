@@ -3,7 +3,7 @@ export default function About() {
     <div className="prose prose-slate max-w-none">
       <h1>About</h1>
       <p>
-        This project is a React + Tailwind demo showing reusable components, props, and routing.
+        This project is a React + Tailwind showing reusable components, props, and routing.
       </p>
     </div>
   );

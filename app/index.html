@@ -5,6 +5,24 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>app</title>
+    <script>
+      (function () {
+        // Deterministic init: default to light. Only add dark if explicitly saved in localStorage.
+        // Note: theme is stored via JSON.stringify in useLocalStorage, so parse it first.
+        try {
+          var raw = localStorage.getItem('theme');
+          var stored = null;
+          if (raw != null) {
+            try { stored = JSON.parse(raw); } catch (_) { stored = raw; }
+          }
+          if (stored === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

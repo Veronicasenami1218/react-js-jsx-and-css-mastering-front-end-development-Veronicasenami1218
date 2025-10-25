@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
+import ThemeToggle from './ThemeToggle';
 
 const linkBase = 'px-3 py-2 rounded-md text-sm font-medium';
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
   return (
     <nav className="bg-white border-b border-slate-200 dark:bg-slate-900 dark:border-slate-800">
       <div className="mx-auto max-w-7xl px-4">
@@ -44,14 +43,7 @@ export default function Navbar() {
             >
               Tasks
             </NavLink>
-            <button
-              type="button"
-              onClick={toggleTheme}
-              title="Toggle theme"
-              className="ml-2 px-3 py-2 rounded-md text-sm font-medium border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-            >
-              {theme === 'dark' ? 'Light' : 'Dark'}
-            </button>
+            <ThemeToggle className="ml-2" />
           </div>
         </div>
       </div>
