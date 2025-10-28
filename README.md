@@ -44,78 +44,52 @@ app/
     │   ├── Home.jsx
     │   ├── About.jsx
     │   ├── Tasks.jsx             # uses TaskManager
-    │   ├── Posts.jsx             # API list with search + pagination
     │   └── NotFound.jsx
     └── services/
         └── api.js                # fetchPosts with timeout + fallback
-```
 
-## Setup
+## Run Locally (quick)
 
-From the repository root:
-
-```bash
-npm --prefix app install      # install dependencies inside app/
-npm --prefix app start        # start Vite dev server (http://localhost:5173)
-npm --prefix app run build    # production build to app/dist/
-```
-
-Alternatively (inside `app/`):
-
-```bash
-cd app
-npm install
-npm run dev
-npm run build
-```
+- Dev server URL: http://localhost:5173
+- Entry renders via `src/main.jsx` using `RouterProvider` and `ThemeProvider`.
+- Note: `src/App.jsx` is a simple demo and not used by the router.
 
 ## Features by Task
 
 - **Task 1: Project Setup**
   - Vite React app, Tailwind configured (`darkMode: 'class'`).
-  - React Router configured in `src/main.jsx`.
-
-- **Task 2: Component Architecture**
-  - Reusable `Button`, `Card`, `Navbar`, `Footer`, `Layout` components.
-  - Props for variants, sizes, and composition.
-
-- **Task 3: State Management and Hooks**
-  - `TaskManager` (add/complete/delete/filter) with `useState`/`useEffect`.
-  - `useLocalStorage` custom hook for persistence.
-  - `ThemeContext` provides `theme` and `toggleTheme`; `ThemeToggle` switches modes.
-
-- **Task 4: API Integration**
-  - `Posts.jsx` shows a grid of posts with search (debounced), pagination, loading skeletons, and error states.
-  - `fetchPosts()` uses an 8s timeout to JSONPlaceholder and falls back to DummyJSON if unreachable.
-
-- **Task 5: Styling with Tailwind CSS**
-  - Mobile-first responsive design (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`, container widths).
-  - Theme-aware styles using `dark:` variants across layout and components.
-  - Utility classes for spacing, typography, and colors.
-  - Transitions and skeleton loaders for interactivity.
-
-## Troubleshooting
-
-- **Tailwind styles not loading**
-  - Ensure `app/src/index.css` contains `@import "tailwindcss";`.
-  - Confirm `tailwind.config.js` includes `content: ['./index.html','./src/**/*.{js,jsx,ts,tsx}']`.
-  - Restart the dev server and hard refresh the browser.
-
-- **Theme toggle only changes the button**
-  - The app toggles `document.documentElement.classList` with `dark` in `ThemeContext.jsx`.
-  - `app/index.html` includes an inline script to set the initial theme before React mounts, preventing flashes and ensuring Tailwind `dark:` variants apply immediately.
-  - Verify in DevTools Console while toggling:
+{{ ... }}
     ```js
     document.documentElement.classList.contains('dark')
     ```
   - Ensure containers use `dark:` classes, e.g., `Layout.jsx` has `dark:bg-slate-950 dark:text-slate-100`.
 
-## Deployment
+  ## Deployment
+  
+  1. Build the app:
+     ```bash
+     npm --prefix app run build
+     ```
+   2. Deploy `app/dist/` to your hosting provider (Vercel, Netlify, GitHub Pages, etc.).
+   3. Update the Live Demo link at the top of this README with your deployed URL.
 
-1. Build the app:
-   ```bash
-   npm --prefix app run build
-   ```
-2. Deploy `app/dist/` to your hosting provider (Vercel, Netlify, GitHub Pages, etc.).
-3. Update the Live Demo link at the top of this README with your deployed URL.
+### Netlify
 
+- Build command: `npm run build`
+- Base directory: `app`
+- Publish directory: `app/dist`
+- Node version: 18+
+- After deploy, set the site name in Netlify (optional) and replace the Live Demo placeholder.
+
+### Vercel
+
+- Framework Preset: Vite
+- Root Directory: `app`
+- Build Command: `npm run build`
+- Output Directory: `dist`
+## Screenshots
+
+These screenshots are located in the `app/` folder of the repo.
+
+![Home](app/image-1.png)
+![Dark Mode](app/image-2.png)
