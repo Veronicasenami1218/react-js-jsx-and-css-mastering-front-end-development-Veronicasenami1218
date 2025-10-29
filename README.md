@@ -1,6 +1,6 @@
 # React + Tailwind App (Vite)
 
-Live Demo: https://YOUR_LIVE_URL_HERE
+Live Demo: https://tasks-posts.netlify.app/
 
 Local Dev URL: http://localhost:5173
 
